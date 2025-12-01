@@ -1,0 +1,38 @@
+<svg width="512" height="512" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="purpleGradient" x1="40" y1="40" x2="110" y2="160" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8E54E9" />
+      <stop offset="100%" stop-color="#4776E6" />
+    </linearGradient>
+
+    <linearGradient id="tealGradient" x1="100" y1="80" x2="180" y2="160" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2AF598" />
+      <stop offset="100%" stop-color="#009EFD" />
+    </linearGradient>
+    
+    <linearGradient id="shadowGradient" x1="100" y1="80" x2="100" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#20002c" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#20002c" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <path d="M105 85 L125 145 C130 165 155 165 160 145 L180 75" 
+        stroke="url(#tealGradient)" 
+        stroke-width="32" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+
+  <path d="M50 75 L70 145 C75 165 100 165 105 145 L120 95" 
+        stroke="url(#purpleGradient)" 
+        stroke-width="32" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+
+  <path d="M104 80 L 120 130 L 88 130 Z" fill="url(#shadowGradient)" style="mix-blend-mode: multiply;" />
+
+  <path d="M98 62 L115 45 L132 62" 
+        stroke="url(#tealGradient)" 
+        stroke-width="12" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+</svg>
