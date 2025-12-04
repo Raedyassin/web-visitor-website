@@ -1,61 +1,6 @@
 import "server-only";
-
+// for testing
 export const pricing = {
-  // egypt: [
-  //   {
-  //     name: "Starter",
-  //     price: "$149",
-  //     description: "Perfect for small landing pages and personal projects",
-  //     features: [
-  //       "Single Page Design",
-  //       "Responsive Mobile Design",
-  //       "Contact Form Integration",
-  //       "Basic SEO Optimization",
-  //       "3–5 Days Delivery",
-  //       "1 Round of Revisions",
-//         "Optional Hosting: +$60/year"
-  //     ],
-  //     color: "emerald",
-  //     icon: "Rocket",
-  //   },
-  //   {
-  //     name: "Professional",
-  //     price: "$399",
-  //     description: "Ideal for small businesses and startup websites",
-  //     features: [
-  //       "Up to 5 Pages",
-  //       "Custom UI Design",
-  //       "Smooth Animations",
-  //       "CMS Integration",
-  //       "SEO Optimization",
-  //       "Analytics Setup",
-  //       "7–10 Days Delivery",
-  //       "2 Rounds of Revisions",
-  //       "14 Days Free Support",
-  //     ],
-  //     color: "cyan",
-  //     icon: "Zap",
-  //   },
-  //   {
-  //     name: "Enterprise",
-  //     price: "$899+",
-  //     description: "For advanced platforms and e-commerce websites",
-  //     features: [
-  //       "Unlimited Pages",
-  //       "E-commerce Integration",
-  //       "Payment Gateway Setup",
-  //       "Custom Backend Features",
-  //       "Admin Dashboard",
-  //       "Priority Support",
-  //       "Advanced Analytics",
-  //       "14–25 Days Delivery",
-  //       "Unlimited Revisions",
-  //       "45 Days Free Support",
-  //     ],
-  //     color: "purple",
-  //     icon: "Crown",
-  //   },
-  // ],
   egypt: [
     {
       name: "Starter",
@@ -74,43 +19,6 @@ export const pricing = {
       color: "emerald",
       icon: "Rocket",
     },
-    // {
-    //   name: "Professional",
-    //   price: "9,999 EGP",
-    //   description: "Ideal for small businesses and startup websites",
-    //   features: [
-    //     "Up to 5 Pages",
-    //     "Custom UI Design",
-    //     "Smooth Animations",
-    //     "CMS Integration",
-    //     "SEO Optimization",
-    //     "Analytics Setup",
-    //     "14-20 Days Delivery",
-    //     "2 Rounds of Revisions(changes)",
-    //     "14 Days Free Support",
-    //   ],
-    //   color: "cyan",
-    //   icon: "Zap",
-    // },
-    // {
-    //   name: "Enterprise",
-    //   price: "24,999+ EGP",
-    //   description: "For advanced platforms and e-commerce websites",
-    //   features: [
-    //     "Unlimited Pages",
-    //     "E-commerce Integration",
-    //     "Payment Gateway Setup",
-    //     "Custom Backend Features",
-    //     "Admin Dashboard",
-    //     "Priority Support",
-    //     "Advanced Analytics",
-    //     "14–25 Days Delivery",
-    //     "Unlimited Revisions",
-    //     "45 Days Free Support",
-    //   ],
-    //   color: "purple",
-    //   icon: "Crown",
-    // },
     {
       name: "Professional",
       price: "12,999+ EGP",
@@ -303,12 +211,6 @@ export const extraPayments = [
     price: "$99",
     description: "Design + build a new page or section on the website.",
   },
-  // {
-  //   name: "Speed Optimization",
-  //   price: "$49",
-  //   description: "Advanced performance optimization for faster loading.",
-  //   example: "Client wants higher Lighthouse score for SEO or ads.",
-  // },
   {
     name: "Monthly Maintenance",
     price: "$20 / hour",
