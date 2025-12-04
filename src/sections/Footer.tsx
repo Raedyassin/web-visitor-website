@@ -2,7 +2,7 @@ import React from "react";
 import {
   Mail,
 } from "lucide-react";
-import ScrollToTopButton from "@/components/ScrollTop";
+// import ScrollToTopButton from "@/components/ScrollTop";
 import { links, socialMedia } from "@/lib/constaints";
 import Link from "next/link";
 import Logo from "@/components/Logo";
