@@ -4,7 +4,7 @@ import { calcRegion } from "./lib/CalcRegion";
 import { geolocation } from "@vercel/functions";
 
 export const runtime = "edge";  // ✅ THIS FIXES THE ERROR
-export async function proxy(req: NextRequest) {
+export async function middleware(req: NextRequest) {
   const { country } = geolocation(req) || "UNKNOWN";
   const region = calcRegion(country);
   let lang = "en";
