@@ -1,7 +1,7 @@
 import 'server-only'
 export function calcRegion(country: string) {
-  // let region = "global";
-  let region = "egypt";
+  let region = "global";
+  // let region = "egypt";
 
   if (country === "EG") {
     region = "egypt";
