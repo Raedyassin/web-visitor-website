@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { calcRegion } from "./lib/CalcRegion";
-
+export const runtime = "edge";  // ✅ THIS FIXES THE ERROR
 export async function proxy(req: NextRequest) {
   const country = req.geo?.country || "UNKNOWN";
   const region = calcRegion(country);
