@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 import { calcRegion } from "./lib/CalcRegion";
 import { geolocation } from "@vercel/functions";
 
-export async function middleware(req: NextRequest) {
+export async function proxy(req: NextRequest) {
   const { country } = geolocation(req) || "UNKNOWN";
   const region = calcRegion(country);
   let lang = "en";
