@@ -4,14 +4,16 @@ import Button from "../components/Button";
 import Logo from "@/components/Logo";
 import { useMediaQuery } from "react-responsive";
 import { useEffect, useState } from "react";
-import { Languages, Menu, X } from "lucide-react";
-import { languages as languageSet, links, socialMedia } from "@/lib/constaints";
+import { Menu, X } from "lucide-react";
+import { languages, links, socialMedia } from "@/lib/constaints";
 import { useRouter } from "next/navigation";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
-export default function Header() {
+export default function HeaderTest() {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [open, setOpen] = useState(false);
-  const [language, setLanguage] = useState("عربي");
+  const [language, setLanguage] = useState("en");
   const router = useRouter();
 
   const navigateTo = (path: string) => {
@@ -24,11 +26,31 @@ export default function Header() {
     if (!isMobile) setOpen(false);
   }, [isMobile]);
 
+  useGSAP(() => {
+    if (open) {
+      gsap.to("#menu-open", {
+        x: 0,
+        duration: 0.5,
+        onStart: () => {
+          gsap.set("#menu-open", { display: "block" });
+        },
+      });
+    } else {
+      gsap.to("#menu-open", {
+        x: "110%",
+        duration: 0.5,
+        onComplete: () => {
+          gsap.set("#menu-open", { display: "none" });
+        },
+      });
+    }
+  }, [open]);
+
   return (
     <nav
       id="nav"
-      className={`w-full z-20 sm:pr-5 sm:pl-2 md:pr-10 md:pl-6 py-5 sm:py-2 font-bold 
-        overflow-y-auto overflow-x-hidden sm:overflow-hidden
+      className={`w-full z-20 px-5 md:px-10 py-5 font-bold overflow-y-auto overflow-x-hidden sm:overflow-hidden
+        ${open ? "fixed top-0 left-0 h-screen bg-dark-blue" : ""}
         `}
     >
       {/* ============ MOBILE HEADER ============ */}
@@ -36,23 +58,21 @@ export default function Header() {
         <>
           {/* Top Row */}
           <div
-            className={`flex justify-between items-center fixed top-0 left-0 
-          w-full pl-2 px-4 md:px-10 py-2 z-60 ${
-            open ? "bg-dark-blue" : "backdrop-blur-sm  bg-dark-blue/80"
-          } `}
+            className="flex justify-between items-center fixed top-0 left-0 
+          w-full px-4 md:px-10 py-2 z-50 backdrop-blur-sm  bg-dark-blue/80 "
           >
             <Logo />
             {open ? (
               <X
                 onClick={() => setOpen(false)}
-                className="size-10 p-2
+                className="size-10 p-2  border-2 border-gray-300  
                 rounded-full text-gray-300  cursor-pointer hover:bg-gray-300 
                 transition-all duration-200 hover:border-dark-blue hover:text-dark-blue"
               />
             ) : (
               <Menu
                 onClick={() => setOpen(true)}
-                className="size-10 p-2    
+                className="size-10 p-2  border-2 border-gray-300  
                 rounded-full text-gray-300  cursor-pointer hover:bg-gray-300 
                 transition-all duration-200 hover:border-dark-blue hover:text-dark-blue"
               />
@@ -60,16 +80,12 @@ export default function Header() {
           </div>
 
           {/* Mobile Menu */}
+          {/* {open && ( */}
           <div
             id="menu-open"
-            className={`z-50 bg-dark-blue h-screen w-full fixed top-0 left-0
-            mt-12 space-y-4 px-5 pt-5 overflow-y-auto transition-all duration-300
-            ${
-              open
-                ? "translate-x-0 opacity-100"
-                : "translate-x-[-110%] opacity-0"
-            }
-            `}
+            className="
+            mt-15 space-y-4 bg-dark-blue overflow-y-auto
+            "
           >
             {/* Links */}
             <ul className="flex flex-col gap-4">
@@ -97,7 +113,7 @@ export default function Header() {
                   setLanguage(e.target.value);
                 }}
               >
-                {languageSet.map((item, i) => (
+                {languages.map((item, i) => (
                   <option
                     key={i}
                     value={item.code}
@@ -142,13 +158,14 @@ export default function Header() {
               </div>
             </div>
           </div>
+          {/* )} */}
         </>
       ) : (
         // ============ DESKTOP HEADER ============ //
         <div className="flex justify-between items-center">
           <Logo />
 
-          <ul className="flex gap-3">
+          <ul className="flex gap-8">
             {links.slice(1, 5).map((item, i) => (
               <li
                 key={i}
@@ -162,29 +179,9 @@ export default function Header() {
           </ul>
 
           <div className="flex items-center gap-5">
-            <div className="group">
-                <div
-                  
-                  className="flex gap-2 cursor-pointer">
-                <p>{language}</p>
-                <Languages />
-                </div>
-                <div className="group-hover:">
-                  {
-                    languageSet.map((item, i) => (
-                      <button
-                        key={i}
-                        className="hidden"
-                        onClick={()=> setLanguage(languageSet[i].code)}
-                      >{item.name}</button>
-                    ))
-                  }
-                </div>
-            </div>
-            {/* <select
+            <select
               id="lang"
-                className="px-3 py-2 rounded bg-dark-blue text-white border 
-              border-cyan-500/30 cursor-pointer" 
+              className="px-3 py-2 rounded bg-dark-blue text-white border border-cyan-500/30"
               onChange={(e) => setLanguage(e.target.value)}
             >
               {languages.map((item, i) => (
@@ -192,7 +189,7 @@ export default function Header() {
                   {item.name}
                 </option>
               ))}
-            </select> */}
+            </select>
             <Button href="/#contact">Get Your WebSite</Button>
           </div>
         </div>

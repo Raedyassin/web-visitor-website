@@ -7,39 +7,45 @@ export default function Button({
   children,
   href,
   color,
+  fun,
 }: {
   children: React.ReactNode;
-    href: string;
+  href: string;
   color?: string;
+  fun?: () => void;
 }) {
   return (
     <Link
       href={href}
-      className=" 
-        relative inline-flex items-center gap-1 px-9 py-2
-        rounded-full font-semibold text-[16px]
-        text-lime-300 shadow-[0_0_0_2px_#ccff00]
+      onClick={() => fun && fun()}
+      className="
+        relative inline-flex items-center gap-1 
+        px-6 py-2 sm:px-8  md:px-9
+        rounded-full font-semibold 
+        text-sm sm:text-base md:text-[16px]
+        text-cyan-300 shadow-[0_0_0_2px_#22d3ee]
         transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]
         overflow-hidden group
-        border-[4px] border-transparent
+        border-[3px] md:border-[4px] border-transparent
       "
     >
-      {/* LEFT ARROW (arr-2) */}
+      {/* LEFT ARROW */}
       <ArrowRight
         className="
-          absolute left-[-25%] w-6 fill-lime-300 z-[9]
+          absolute left-[-35%] w-5 sm:w-6 fill-cyan-300 z-[9]
           transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)]
-          group-hover:left-4 group-hover:fill-[#212121]
+          group-hover:left-3 sm:group-hover:left-4 group-hover:fill-[#212121]
         "
       />
 
-      {/* BUTTON TEXT */}
+      {/* TEXT */}
       <span
         className="
           relative z-[1]
-          -translate-x-3
+          -translate-x-2 sm:-translate-x-3
           transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)]
-          group-hover:translate-x-3 group-hover:text-[#212121]
+          group-hover:translate-x-2 sm:group-hover:translate-x-3 
+          group-hover:text-[#212121]
         "
       >
         {children}
@@ -49,20 +55,23 @@ export default function Button({
       <span
         className="
           absolute top-1/2 left-1/2
-          w-5 h-5 opacity-0
+          w-4 h-4 sm:w-5 sm:h-5 opacity-0
           -translate-x-1/2 -translate-y-1/2
-          bg-lime-300 rounded-full
+          bg-cyan-300 rounded-full
           transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)]
-          group-hover:w-[220px] group-hover:h-[220px] group-hover:opacity-100
+          group-hover:w-[200px] group-hover:h-[200px] 
+          sm:group-hover:w-[260px] sm:group-hover:h-[220px]
+          md:group-hover:w-[320px] md:group-hover:h-[220px]
+          group-hover:opacity-100
         "
       />
 
-      {/* RIGHT ARROW (arr-1) */}
+      {/* RIGHT ARROW */}
       <ArrowRight
         className="
-          absolute right-4 w-6 fill-indigo-300 z-[9]
+          absolute right-3 sm:right-4 w-5 sm:w-6 fill-indigo-300 z-[9]
           transition-all duration-[800ms] ease-[cubic-bezier(0.23,1,0.32,1)]
-          group-hover:right-[-25%] group-hover:fill-[#212121]
+          group-hover:right-[-35%] group-hover:fill-[#212121]
         "
       />
     </Link>

@@ -1,166 +1,117 @@
 import Image from "next/image";
-import Header from "./Header";
 import Button from "../components/Button";
+import { Code2, Globe, Sparkles, Zap } from "lucide-react";
+import FloatingIcon from "@/components/FloatingIcon";
 
 export default function Hero() {
-
   return (
-    <div
-      className="min-h-[90vh] w-full relative
-      
-    "
-      // min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden
+    <section
+      id="hero"
+      // min-h-[90vh]
+      className=" mt-10 sm:mt-0 w-full relative overflow-hidden"
     >
-      <div className="grid grid-cols-2  ">
-        <div className="pl-15 flex flex-col mt-20 space-y-5">
-          {/* <h1>Your Business Deserves a World-Class Online Home</h1> */}
-          <h1 className="text-6xl font-bold ">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-lime-200 to-lime-400">
-              Build Your Dream Website
-            </span>{" "}
-            With Expert Engineering
-          </h1>
-          <h2 className="text-xl font-semibold">
-            Don't Settle for a Template. Get a Custom-Built Digital Experience
-          </h2>
-          <p className="text-lg">
-            High-quality{" "}
-            <span
-              className="
-            bg-cyan-500/10 border border-cyan-500/30 
-            rounded-full px-3 py-1 backdrop-blur-sm
-            text-cyan-500 text-sm font-semibold"
-            >
-              landing pages
-            </span>{" "}
-            <span
-              className="
-            bg-cyan-500/10 border border-cyan-500/30 
-            rounded-full px-3 py-1 backdrop-blur-sm
-            text-cyan-500 text-sm font-semibold"
-            >
-              e-commerce
-            </span>{" "}
-            <span
-              className="
-            bg-cyan-500/10 border border-cyan-500/30 
-            rounded-full px-3 py-1 backdrop-blur-sm
-            text-cyan-500 text-sm font-semibold"
-            >
-              websites
-            </span>{" "}
-            and apps built with modern full-stack technologies with
-            SEO-optimized and Mobile-ready
-          </p>
-
-          <span className="mt-10">
-            <Button href="/#contact">Start Your Project Now</Button>
-          </span>
-        </div>
-        <div className="relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Text Content */}
           <div
-            className="z-0 animate-pulse absolute inset-0 rounded-full
-            bg-blue/20 blur-xl "
-          ></div>
-          {/* <div className="">
-            <div className="z-9 absolute animate-pulse left-1/2 top-10 rounded-full size-15 bg-lime-200 blur"></div>
-            <div className="z-9 absolute animate-pulse left-1/2 bottom-4 rounded-full size-15 bg-lime-200 blur"></div>
-            <div className="z-9 absolute animate-pulse right-20 top-70 rounded-full size-15 bg-lime-200 blur"></div>
-            <div className="z-9 absolute animate-pulse left-20 top-50 rounded-full size-15 bg-lime-200 blur"></div>
-          </div> */}
-          <Image
-            className="z-10 relative"
-            alt="hero"
-            src="/hero-side.png"
-            width={800}
-            height={800}
-          />
+            className="flex flex-col items-center lg:items-start text-center 
+          lg:text-left mt-5  space-y-5 z-20"
+          >
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold">
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Build a High-Performance Website
+              </span>{" "}
+              That Grows Your Business
+            </h1>
+
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-200">
+              Stop using generic templates — get a custom, conversion-focused
+              digital experience built for results.
+            </h2>
+
+            <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+              Modern{" "}
+              <span className="inline-block bg-cyan-500/10 border border-cyan-500/30 rounded-full px-3 py-1 backdrop-blur-sm text-cyan-500 text-sm font-semibold">
+                landing pages
+              </span>{" "}
+              <span className="inline-block bg-cyan-500/10 border border-cyan-500/30 rounded-full px-3 py-1 backdrop-blur-sm text-cyan-500 text-sm font-semibold">
+                e-commerce stores
+              </span>{" "}
+              <span className="inline-block bg-cyan-500/10 border border-cyan-500/30 rounded-full px-3 py-1 backdrop-blur-sm text-cyan-500 text-sm font-semibold">
+                web apps
+              </span>{" "}
+              built with full-stack technologies — fast, SEO-optimized, and
+              fully mobile-ready.
+            </p>
+
+            <div className="mt-5 w-full sm:w-auto">
+              <Button href="/#contact">Start Your Project Now</Button>
+            </div>
+          </div>
+
+          {/* Image Section */}
+          <div className="relative  w-full h-[400px] sm:h-[500px] lg:h-[600px] mt-8 lg:mt-0">
+            {/* Floating Icons - Hidden on mobile, visible on larger screens */}
+            <div className="block z-60">
+              <FloatingIcon
+                icon={Code2}
+                delay={0}
+                position="top-[30%] left-[5%]"
+              />
+              <FloatingIcon
+                icon={Zap}
+                delay={0.5}
+                position="top-[25%] right-[8%]"
+              />
+              <FloatingIcon
+                icon={Globe}
+                delay={1}
+                position="top-[10%] left-[2%]"
+              />
+              <FloatingIcon
+                icon={Sparkles}
+                delay={1.5}
+                position="top-[5%] right-[15%]"
+              />
+            </div>
+
+            {/* Glow Effect */}
+            <div
+              className="animate-pulse absolute inset-0 top-1/2 rounded-full 
+              bg-cyan-500/20 blur-3xl w-full h-[50%]"
+            ></div>
+
+            {/* Performance Badge */}
+            <div
+              className="absolute z-20 bottom-4 right-4 sm:bottom-6 sm:right-6 bg-slate-900/90 backdrop-blur-xl border-2 border-emerald-500/30 rounded-2xl p-3 sm:p-4 shadow-xl shadow-emerald-500/20 animate-slideUp"
+              style={{ animationDelay: "1.2s" }}
+            >
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-emerald-400 to-green-500 flex items-center justify-center">
+                  <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                </div>
+                <div>
+                  <p className="text-xl sm:text-2xl font-bold text-emerald-400">
+                    99%
+                  </p>
+                  <p className="text-gray-400 text-xs">Performance</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Hero Image */}
+            <div className="relative w-full h-full z-10">
+              <Image
+                src="/hero-side.png"
+                alt="hero"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-
 }
-
-
-          // <div
-          //   className={`relative transition-all duration-1000 delay-300 transform`}
-          // >
-          //   <div className="relative">
-          //     {/* Decorative Elements */}
-          //     <div className="absolute -top-10 -left-10 w-40 h-40 bg-purple-500 rounded-full filter blur-3xl opacity-30 animate-pulse"></div>
-          //     <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-pink-500 rounded-full filter blur-3xl opacity-30 animate-pulse delay-700"></div>
-
-          //     {/* Main Image Container */}
-          //     <div className="relative bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm rounded-2xl p-1 border border-purple-500/20">
-          //       <div className="bg-slate-900/50 rounded-xl p-6 backdrop-blur-sm">
-          //         {/* Browser mockup */}
-          //         <div className="bg-slate-800 rounded-lg overflow-hidden shadow-2xl">
-          //           <div className="bg-slate-700 px-4 py-3 flex items-center space-x-2">
-          //             <div className="flex space-x-2">
-          //               <div className="w-3 h-3 rounded-full bg-red-500"></div>
-          //               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-          //               <div className="w-3 h-3 rounded-full bg-green-500"></div>
-          //             </div>
-          //             <div className="flex-1 bg-slate-600 rounded px-3 py-1 text-xs text-gray-400">
-          //               webvisitor.dev
-          //             </div>
-          //           </div>
-          //           <div className="bg-gradient-to-br from-slate-900 via-purple-900/30 to-slate-900 p-8 min-h-[400px] flex flex-col items-center justify-center">
-          //             {/* Animated code lines effect */}
-          //             <div className="space-y-4 w-full max-w-md">
-          //               <div className="h-4 bg-purple-500/30 rounded animate-pulse w-3/4"></div>
-          //               <div className="h-4 bg-blue-500/30 rounded animate-pulse delay-100 w-full"></div>
-          //               <div className="h-4 bg-pink-500/30 rounded animate-pulse delay-200 w-5/6"></div>
-          //               <div className="h-4 bg-purple-500/30 rounded animate-pulse delay-300 w-2/3"></div>
-          //               <div className="my-8 text-center">
-          //                 <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full">
-          //                   <Zap className="w-12 h-12 text-white" />
-          //                 </div>
-          //                 <p className="text-white font-bold text-2xl mt-4">
-          //                   Your Website
-          //                 </p>
-          //                 <p className="text-purple-300">Built to Perfection</p>
-          //               </div>
-          //               <div className="h-4 bg-blue-500/30 rounded animate-pulse delay-400 w-4/5"></div>
-          //               <div className="h-4 bg-pink-500/30 rounded animate-pulse delay-500 w-full"></div>
-          //               <div className="h-4 bg-purple-500/30 rounded animate-pulse delay-600 w-3/5"></div>
-          //             </div>
-          //           </div>
-          //         </div>
-
-          //         {/* Floating badges */}
-          //         <div className="absolute -right-4 top-20 bg-white rounded-lg shadow-xl p-3 animate-bounce">
-          //           <p className="text-xs text-gray-600 font-semibold">
-          //             Next.js
-          //           </p>
-          //           <p className="text-2xl font-bold text-purple-600">⚡</p>
-          //         </div>
-          //         <div className="absolute -left-4 bottom-32 bg-white rounded-lg shadow-xl p-3 animate-bounce delay-300">
-          //           <p className="text-xs text-gray-600 font-semibold">React</p>
-          //           <p className="text-2xl font-bold text-blue-600">⚛️</p>
-          //         </div>
-          //       </div>
-          //     </div>
-
-          //     {/* Stats card */}
-          //     <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white rounded-xl shadow-2xl p-4 min-w-[280px]">
-          //       <div className="flex items-center justify-around">
-          //         <div className="text-center">
-          //           <p className="text-2xl font-bold text-purple-600">99%</p>
-          //           <p className="text-xs text-gray-600">Performance</p>
-          //         </div>
-          //         <div className="w-px h-10 bg-gray-300"></div>
-          //         <div className="text-center">
-          //           <p className="text-2xl font-bold text-pink-600">14</p>
-          //           <p className="text-xs text-gray-600">Days Delivery</p>
-          //         </div>
-          //         <div className="w-px h-10 bg-gray-300"></div>
-          //         <div className="text-center">
-          //           <p className="text-2xl font-bold text-blue-600">100%</p>
-          //           <p className="text-xs text-gray-600">Satisfaction</p>
-          //         </div>
-          //       </div>
-          //     </div>
-          //   </div>
-          // </div>;
